@@ -119,6 +119,7 @@ public class Weapon : MonoBehaviour {
         switch (type)
         {
             case WeaponType.blaster:
+                def.letter = "B";
                 p = MakeProjectile();
                 p.rigid.velocity = vel;
                 def.delayBetweenShots += .1f;
@@ -126,6 +127,7 @@ public class Weapon : MonoBehaviour {
                 break;
 
             case WeaponType.spread:
+                def.letter = "S";
                 p = MakeProjectile(); // Make middle Projectile
                 p.rigid.velocity = vel/2f;
                 p = MakeProjectile(); // Make right Projectile
@@ -143,6 +145,7 @@ public class Weapon : MonoBehaviour {
                 break;
 
             case WeaponType.phaser:
+                def.letter = "A";
                 p = MakeProjectile();
                 p.rigid.velocity = vel;
                 p = MakeProjectile();
@@ -150,11 +153,13 @@ public class Weapon : MonoBehaviour {
                 break;
 
             case WeaponType.missile:
+                def.letter = "M";
                 p = MakeProjectile();
                 p.rigid.velocity = vel;
                 break;
 
             case WeaponType.laser:
+                def.letter = "L";
                 p = MakeProjectile();
                 def.continuousDamage = 1;
                 def.delayBetweenShots = 0;
@@ -163,6 +168,7 @@ public class Weapon : MonoBehaviour {
                 break;
 
             case WeaponType.potato:
+                def.letter = "P";
                 p = MakeProjectile();
                 def.continuousDamage = 0;
                 def.delayBetweenShots = 0;
