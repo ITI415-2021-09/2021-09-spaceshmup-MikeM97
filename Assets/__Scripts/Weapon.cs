@@ -15,6 +15,7 @@ public enum WeaponType
     phaser, // [NI] Shots that move in waves
     missile, // [NI] Homing missiles
     laser, // [NI] Damage over time
+    potato, // Throw a potato at the enemies, doesn't do much, it's really about the message
     shield // Raise shieldLevel
 }
 
@@ -159,6 +160,14 @@ public class Weapon : MonoBehaviour {
                 def.delayBetweenShots = 0;
                 def.damageOnHit = 0;
                 p.rigid.velocity = vel;
+                break;
+
+            case WeaponType.potato:
+                p = MakeProjectile();
+                def.continuousDamage = 0;
+                def.delayBetweenShots = 0;
+                def.damageOnHit = .000001f;
+                p.rigid.velocity = vel/5;
                 break;
 
         }
