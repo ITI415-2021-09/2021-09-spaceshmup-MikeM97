@@ -124,7 +124,7 @@ public class Weapon : MonoBehaviour {
 
             case WeaponType.spread:
                 p = MakeProjectile(); // Make middle Projectile
-                p.rigid.velocity = vel;
+                p.rigid.velocity = vel/2f;
                 p = MakeProjectile(); // Make right Projectile
                 p.transform.rotation = Quaternion.AngleAxis(10, Vector3.back);
                 p.rigid.velocity = p.transform.rotation * vel;
@@ -152,6 +152,8 @@ public class Weapon : MonoBehaviour {
             case WeaponType.laser:
                 p = MakeProjectile();
                 p.rigid.velocity = vel;
+                def.continuousDamage = 1;
+                def.delayBetweenShots = 0;
                 break;
 
         }
