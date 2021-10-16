@@ -120,6 +120,8 @@ public class Weapon : MonoBehaviour {
             case WeaponType.blaster:
                 p = MakeProjectile();
                 p.rigid.velocity = vel;
+                def.delayBetweenShots += .15f;
+                def.damageOnHit -= 1;
                 break;
 
             case WeaponType.spread:
@@ -142,6 +144,8 @@ public class Weapon : MonoBehaviour {
             case WeaponType.phaser:
                 p = MakeProjectile();
                 p.rigid.velocity = vel;
+                p = MakeProjectile();
+                p.rigid.velocity = vel;
                 break;
 
             case WeaponType.missile:
@@ -151,9 +155,10 @@ public class Weapon : MonoBehaviour {
 
             case WeaponType.laser:
                 p = MakeProjectile();
-                p.rigid.velocity = vel;
                 def.continuousDamage = 1;
                 def.delayBetweenShots = 0;
+                def.damageOnHit = 0;
+                p.rigid.velocity = vel;
                 break;
 
         }
