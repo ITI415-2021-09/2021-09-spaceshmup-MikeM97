@@ -120,8 +120,8 @@ public class Weapon : MonoBehaviour {
             case WeaponType.blaster:
                 p = MakeProjectile();
                 p.rigid.velocity = vel;
-                def.delayBetweenShots += .15f;
-                def.damageOnHit -= 1;
+                def.delayBetweenShots += .1f;
+                def.damageOnHit += 10;
                 break;
 
             case WeaponType.spread:
@@ -129,16 +129,16 @@ public class Weapon : MonoBehaviour {
                 p.rigid.velocity = vel/2f;
                 p = MakeProjectile(); // Make right Projectile
                 p.transform.rotation = Quaternion.AngleAxis(10, Vector3.back);
-                p.rigid.velocity = p.transform.rotation * vel;
+                p.rigid.velocity = p.transform.rotation * (vel / 2f);
                 p = MakeProjectile(); // Make left Projectile
                 p.transform.rotation = Quaternion.AngleAxis(-10, Vector3.back);
-                p.rigid.velocity = p.transform.rotation * vel;
+                p.rigid.velocity = p.transform.rotation * (vel / 2f);
                 p = MakeProjectile(); // Make left Projectile
                 p.transform.rotation = Quaternion.AngleAxis(-15, Vector3.back);
-                p.rigid.velocity = p.transform.rotation * vel;
+                p.rigid.velocity = p.transform.rotation * (vel / 2f);
                 p = MakeProjectile(); // Make left Projectile
                 p.transform.rotation = Quaternion.AngleAxis(15, Vector3.back);
-                p.rigid.velocity = p.transform.rotation * vel;
+                p.rigid.velocity = p.transform.rotation * (vel / 2f);
                 break;
 
             case WeaponType.phaser:
